@@ -3,7 +3,7 @@ output "ec2_public_ip" {
 }
 
 output "vpc_id" {
-  value = module.network.vpc_id
+  value = module.networking.vpc_id
 }
 
 output "storage_bucket" {
