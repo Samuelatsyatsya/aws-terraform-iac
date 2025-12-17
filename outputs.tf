@@ -7,5 +7,5 @@ output "vpc_id" {
 }
 
 output "storage_bucket" {
-  value = module.storage.bucket_name
+  value = module.database.bucket_name
 }

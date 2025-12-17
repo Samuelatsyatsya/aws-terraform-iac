@@ -21,6 +21,6 @@ module "compute" {
 }
 
 module "storage" {
-  source      = "./modules/storage"
+  source      = "./modules/database"
   bucket_name = var.app_bucket_name
 }
