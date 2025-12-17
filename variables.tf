@@ -4,6 +4,7 @@ variable "aws_region" {
 
 variable "ami_id" {
   description = "Amazon Linux 2 AMI ID"
+  
 }
 
 variable "key_name" {
@@ -16,4 +17,5 @@ variable "my_ip" {
 
 variable "app_bucket_name" {
   description = "S3 bucket name for storage module"
+  default     = "samuel-app-storage-2025"
 }
