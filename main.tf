@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
-
 module "network" {
   source = "./modules/networking"
 }
@@ -16,8 +12,6 @@ module "compute" {
   source            = "./modules/compute"
   subnet_id         = module.network.public_subnet_id
   security_group_id = module.security.sg_id
-  ami_id            = var.ami_id
-  key_name          = var.key_name
 }
 
 module "storage" {
