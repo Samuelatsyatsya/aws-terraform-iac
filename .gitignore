@@ -1,7 +1,3 @@
-# ----------------------------------
-# Terraform
-# ----------------------------------
-
 # Local terraform directories
 .terraform/
 **/.terraform/*
@@ -21,9 +17,7 @@ crash.*.log
 # Terraform plan files
 *.tfplan
 
-# Terraform lock file (optional: keep if instructor wants)
-# Uncomment the next line if told NOT to commit it
-# .terraform.lock.hcl
+.terraform.lock.hcl
 
 # Override files
 override.tf
@@ -31,9 +25,8 @@ override.tf.json
 *_override.tf
 *_override.tf.json
 
-# ----------------------------------
+
 # Editor / OS junk
-# ----------------------------------
 
 # macOS
 .DS_Store
@@ -47,7 +40,8 @@ Thumbs.db
 # IntelliJ / JetBrains
 .idea/
 
-# ----------------------------------
 # Logs
-# ----------------------------------
 *.log
+
+# PEM files
+*.pem

@@ -1,27 +1,31 @@
-resource "aws_security_group" "web_sg" {
-  name   = "web-sg"
-  vpc_id = var.vpc_id
+# Terraform module to create a security group with specific ingress and egress rules
+resource "aws_security_group" "this" {
+  name        = var.sg_name
+  description = var.sg_description
+  vpc_id      = var.vpc_id
 
   ingress {
-    description = "SSH from my IP"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [var.my_ip]
+    description = var.ssh_description
+    from_port   = var.ssh_port
+    to_port     = var.ssh_port
+    protocol    = var.ssh_protocol
+    cidr_blocks = var.ssh_cidr_blocks
   }
 
   ingress {
-    description = "HTTP from anywhere"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    description = var.http_description
+    from_port   = var.http_port
+    to_port     = var.http_port
+    protocol    = var.http_protocol
+    cidr_blocks = var.http_cidr_blocks
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = var.egress_from_port
+    to_port     = var.egress_to_port
+    protocol    = var.egress_protocol
+    cidr_blocks = var.egress_cidr_blocks
   }
+
+  tags = var.tags
 }
