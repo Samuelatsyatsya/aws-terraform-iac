@@ -59,7 +59,7 @@ module "compute" {
   # EC2 Configuration
   ami_id             = var.compute.ami_id
   instance_type      = var.compute.instance_type
-  subnet_id          = module.networking.public_subnet_ids      
+  subnet_id          = module.networking.public_subnet_id     
   security_group_ids = [module.security.sg_id]           
   key_name           = var.compute.key_name
   associate_public_ip= var.compute.associate_public_ip

@@ -1,10 +1,10 @@
 # Configure the S3 backend for Terraform state storage
 terraform {
   backend "s3" {
-    bucket         = "iac-terraform-state"
+    bucket         = "terraform-state-iac-f3604dbb"
     key            = "terraform/terraform.tfstate"
     region         = "eu-central-1"
-    dynamodb_table = "iac-terraform-locks"
-    encrypt        = true
+    use_lockfile = true
+
   }
 }

@@ -16,7 +16,6 @@ variable "tags" {
   default     = {}
 }
 
-
 # NETWORKING CONFIGURATION
 variable "networking" {
   description = "Networking configuration"

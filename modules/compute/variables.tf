@@ -32,7 +32,6 @@ variable "key_name" {
 variable "associate_public_ip" {
   description = "Assign public IP to the EC2 instance"
   type        = bool
-  default     = true
 }
 
 # Project name for tagging
@@ -45,5 +44,4 @@ variable "project" {
 variable "tags" {
   description = "Additional tags for EC2 instance"
   type        = map(string)
-  default     = {}
 }
