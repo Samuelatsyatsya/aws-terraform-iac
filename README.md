@@ -60,7 +60,7 @@ The infrastructure is modular, parameterized via variables, and suitable for AWS
 │   │   ├── main.tf
 │   │   ├── variables.tf
 │   │   └── outputs.tf
-│   ├── security-group/
+│   ├── security/
 │   │   ├── main.tf
 │   │   ├── variables.tf
 │   │   └── outputs.tf
@@ -74,6 +74,7 @@ The infrastructure is modular, parameterized via variables, and suitable for AWS
     ├── terraform-destroy.png
     ├── ec2-console.png
     └── backend-proof.png
+```
 
 ## Prerequisites
 
@@ -89,58 +90,63 @@ terraform version
 ```
 ## Terraform Backend Configuration
 
-Terraform state is stored remotely using:
+- Terraform state is stored remotely using:
 
-Amazon S3 for state file storage
+- Amazon S3 for state file storage
 
-DynamoDB for state locking and concurrency protection
+- DynamoDB for state locking and concurrency protection
 
-This ensures:
+#### This ensures:
 
-Safe collaboration
+- Safe collaboration
 
-No local state files
+- No local state files
 
-Protection against concurrent runs
+- Protection against concurrent runs
 
 ## How to Run
-Initialize Terraform
+Copy terraform.tfvars.example to terraform.tfvars and fill in your own values:
+
+cp terraform.tfvars.example terraform.tfvars
+
+
+### Initialize Terraform
 ```bash
 terraform init
 ```
 Initializes providers, modules, and the remote backend.
 
 
-## Review the Execution Plan
+### Review the Execution Plan
 ```bash
 terraform plan
 ```
 Confirms the resources to be created and verifies that there are no unexpected changes.
 
 
-## Apply the Infrastructure
+### Apply the Infrastructure
 ```bash
 terraform apply
 ```
 Creates all AWS resources and outputs resource IDs and the EC2 public IP.
 
-## Verify Resources
+### Verify Resources
 
 Verify the following in the AWS Console:
 
-VPC
+- VPC
 
-Subnet
+- Subnet
 
-Security Group
+- Security Group
 
-EC2 instance
+- EC2 instance
 
 Validation checks:
 
-SSH access is restricted to your IP
+- SSH access is restricted to your IP
 
-HTTP is publicly accessible
+- HTTP is publicly accessible
 
 ## Destroy Infrastructure
 ```bash
@@ -148,61 +154,61 @@ terraform destroy
 ```
 Cleans up all AWS resources and prevents unnecessary charges.
 
-## Outputs
+### Outputs
 
 Terraform exposes the following outputs:
 
-#### VPC ID
+- VPC ID
 
-#### Public Subnet ID
+- Public Subnet ID
 
-#### Security Group ID
+- Security Group ID
 
-#### EC2 Instance ID
+- EC2 Instance ID
 
-#### EC2 Public IP
+- EC2 Public IP
 
 These outputs are used for validation and verification.
 
 ## Best Practices Applied
 
-#### Modular Terraform design
+-  Modular Terraform design
 
-#### Remote backend with state locking
+-  Remote backend with state locking
 
-#### No hardcoded values (variables and tfvars)
+- No hardcoded values (variables and tfvars)
 
-#### Dynamic detection of public IP for SSH access
+- Dynamic detection of public IP for SSH access
 
-#### Least-privilege security group rules
+- Least-privilege security group rules
 
-#### Clean create and destroy lifecycle
+- Clean create and destroy lifecycle
 
 ## Deliverables
 
-### Terraform .tf files
+#### Terraform .tf files
 
 Screenshots of:
 
-terraform plan
+- terraform plan
 
-terraform apply
+- terraform apply
 
-terraform destroy
+- terraform destroy
 
-AWS EC2 Console
+- AWS EC2 Console
 
-S3 backend and DynamoDB lock table
+- S3 backend and DynamoDB lock table
 
-GitHub repository with full source code
+- GitHub repository with full source code
 
 ## Tools Used
 
-Terraform v1.5 or later
+- Terraform v1.5 or later
 
-AWS (EC2, VPC, S3, DynamoDB)
+- AWS (EC2, VPC, S3, DynamoDB)
 
-AWS CLI
+- AWS CLI
 
 <p align="center">
   <sub>Made with ❤️ by Sam</sub>
