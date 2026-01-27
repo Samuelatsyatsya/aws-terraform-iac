@@ -1,29 +1,50 @@
-# # Variables for networking module
+# VARIABLES FOR NETWORKING MODULE
+variable "project" {
+  description = "Project name for tagging"
+  type        = string
+}
 
-# # Define the availability zones
-# variable "availability_zone" {
-#   description = "The availability zone to deploy resources in"
-#   type        = string
-#   default     = "eu-west-1a"
-# }
+variable "vpc_cidr" {
+  description = "CIDR block for the VPC"
+  type        = string
+}
 
-# # Define the VPC CIDR block
-# variable "vpc_cidr" {
-#   description = "CIDR block for the VPC"
-#   type        = string
-#   default     = "10.0.0.0/16"
-# }
+variable "enable_dns_support" {
+  description = "Enable DNS support in VPC"
+  type        = bool
+  default     = true
+}
 
-# # Define the Public Subnet CIDR block
-# variable "public_subnet_cidr" {
-#   description = "CIDR block for the Public Subnet"
-#   type        = string
-#   default     = "10.0.1.0/24"
-# }
+variable "enable_dns_hostnames" {
+  description = "Enable DNS hostnames in VPC"
+  type        = bool
+  default     = true
+}
 
-# # Define the Private Subnet CIDR block
-# variable "private_subnet_cidr" {
-#   description = "CIDR block for the Private Subnet"
-#   type        = string
-#   default     = "10.0.2.0/24"
-# }
+variable "public_subnet_cidr" {
+  description = "CIDR block for the public subnet"
+  type        = string
+}
+
+variable "availability_zone" {
+  description = "Availability zone for the subnet"
+  type        = string
+}
+
+variable "map_public_ip_on_launch" {
+  description = "Automatically assign public IPs to instances launched in the subnet"
+  type        = bool
+  default     = true
+}
+
+variable "destination_cidr_block" {
+  description = "Destination CIDR block for the default route"
+  type        = string
+  default     = "0.0.0.0/0"
+}
+
+variable "tags" {
+  description = "Additional tags for all resources"
+  type        = map(string)
+  default     = {}
+}
