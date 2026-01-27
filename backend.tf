@@ -1,11 +1,10 @@
-# terraform {
-#   backend "s3" {
-#     bucket         = "samuel-terraform-state-2025"
-#     key            = "terraform/terraform.tfstate"
-#     region         = "eu-central-1"
-#     dynamodb_table = "terraform-locks"
-#     encrypt        = true
-#   }
-
-#   required_version = ">= 1.5.0"
-# }
+# Configure the S3 backend for Terraform state storage
+terraform {
+  backend "s3" {
+    bucket         = "iac-terraform-state"
+    key            = "terraform/terraform.tfstate"
+    region         = "eu-central-1"
+    dynamodb_table = "iac-terraform-locks"
+    encrypt        = true
+  }
+}
