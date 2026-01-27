@@ -105,6 +105,11 @@ terraform version
 - Protection against concurrent runs
 
 ## How to Run
+Copy terraform.tfvars.example to terraform.tfvars and fill in your own values:
+
+cp terraform.tfvars.example terraform.tfvars
+
+
 ### Initialize Terraform
 ```bash
 terraform init
