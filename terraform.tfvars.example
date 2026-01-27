@@ -1,0 +1,43 @@
+# terraform.tfvars.example
+project_name = "my-iac-project"
+
+region = "eu-central-1"
+
+# Networking
+networking = {
+  vpc_cidr                 = "10.0.0.0/16"
+  public_subnet_cidr       = "10.0.1.0/24"
+  availability_zone        = "eu-central-1a"
+  map_public_ip_on_launch  = true
+}
+
+# Compute
+compute = {
+  ami_id                  = "ami-0c02fb55956c7d316"
+  instance_type           = "t2.micro"
+  key_name                = "your-key-pair-name"
+  associate_public_ip     = true
+}
+
+# Security Group
+security_group = {
+  name                 = "terraform-sg"
+  description          = "Security group for Terraform EC2"
+  ssh_description      = "Allow SSH from your IP"
+  ssh_port             = 22
+  ssh_protocol         = "tcp"
+
+  http_description     = "Allow HTTP from anywhere"
+  http_port            = 80
+  http_protocol        = "tcp"
+  http_cidr_blocks     = ["0.0.0.0/0"]
+  egress_from_port     = 0
+  egress_to_port       = 0
+  egress_protocol      = "-1"
+  egress_cidr_blocks   = ["0.0.0.0/0"]
+}
+
+tags = {
+  Environment = "dev"
+  Owner       = "platform-team"
+}
