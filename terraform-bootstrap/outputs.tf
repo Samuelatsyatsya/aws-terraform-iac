@@ -4,8 +4,3 @@ output "state_bucket_name" {
   value       = aws_s3_bucket.tf_state.bucket
 }
 
-# DynamoDB table for Terraform state locking
-output "lock_table_name" {
-  description = "DynamoDB table used for Terraform state locking"
-  value       = aws_dynamodb_table.tf_lock.name
-}
