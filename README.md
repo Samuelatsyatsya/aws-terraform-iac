@@ -194,14 +194,19 @@ These outputs are used for validation and verification.
 Screenshots of:
 
 - terraform plan
+![terraform plan](screenshots/resources_create_plan.png)
 
 - terraform apply
+![terraform apply](screenshots/resources_create_ApplyComplete.png)
 
 - terraform destroy
+![terraform destroy](screenshots/resources_destroy.png)
 
 - AWS EC2 Console
+![EC2 Console](screenshots/instance_console.png)
 
 - S3 backend and DynamoDB lock table
+![s3_console.png](screenshots/s3_console.png)
 
 - GitHub repository with full source code
 
