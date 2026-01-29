@@ -23,6 +23,9 @@ The infrastructure is modular, parameterized via variables, and suitable for AWS
 
 ## Architecture Components
 
+### Architecture Diagram
+![Architechture Diagram](Architecture_Diagram.png)
+
 ### Networking
 - VPC
 - Single public subnet (single AZ)
